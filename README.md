@@ -1,4 +1,4 @@
-Onepoint lesson
+One Point lesson
 
 I'm study.
-I will make an effort to study.
+I will make an effort to programming study.
