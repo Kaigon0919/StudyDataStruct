@@ -7,4 +7,8 @@ void main()
 	myList.Add(30);
 	myList.Add(40);
 	myList.Add(50);
+	myList.ShowAll();
+	myList.Remove();
+	myList.Remove();
+	myList.ShowAll();
 }

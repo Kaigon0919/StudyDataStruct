@@ -17,7 +17,7 @@ public:
 	DoublyLinkedList();
 	void Add(int data);
 	void Remove();
-	void Remove(int pos);
+	void ShowAll()const;
 	int GetLen()const;
 	~DoublyLinkedList();
 };
