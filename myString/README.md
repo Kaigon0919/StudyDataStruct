@@ -1,7 +1,8 @@
-ÀÌ myStringÀº ÇÐ±³ Onepoint Lesson¿¡¼­ ¼ö¾÷ÇÑ ³»¿ëÀÌ ¾Æ´Ñ °³ÀÎ °øºÎ¿ëÀ¸·Î
+ì´ myStringì€ í•™êµ Onepoint Lessonì—ì„œ ìˆ˜ì—…í•œ ë‚´ìš©ì´ ì•„ë‹Œ ê°œì¸ ê³µë¶€ìš©ìœ¼ë¡œ
 
-Ã¥ÀÇ ADT¸¦ Âü°íÇÏ¿©, ÇÔ¼ö Á¤ÀÇ´Â ¼ø¼ö º»ÀÎÀÌ Â§ ÄÚµåÀÔ´Ï´Ù.
+ì±…ì˜ ADTë¥¼ ì°¸ê³ í•˜ì—¬, í•¨ìˆ˜ ì •ì˜ëŠ” ìˆœìˆ˜ ë³¸ì¸ì´ ì§  ì½”ë“œìž…ë‹ˆë‹¤.
 
-2016-04-06 : ÀÛ¼º, ÀÓ½Ã °´Ã¼ÀÇ ÀÇÇÑ ¼Ò¸êÀÚ ¿À·ù ¼öÁ¤Áß.
-2016-04-07 : ¿À·ù ¼öÁ¤, operator+()¿¡¼­ strcat_s·Î ÀÎÇÑ Å©±â ¿À·ù.
-	- strcatÀº µ¿ÀûÇÒ´çÀº »õ·Î ÇØÁÖÁö ¾Ê´Â´Ù.
+2016-04-06 : ìž‘ì„±, ìž„ì‹œ ê°ì²´ì˜ ì˜í•œ ì†Œë©¸ìž ì˜¤ë¥˜ ìˆ˜ì •ì¤‘.
+
+2016-04-07 : ì˜¤ë¥˜ ìˆ˜ì •, operator+()ì—ì„œ strcat_së¡œ ì¸í•œ í¬ê¸° ì˜¤ë¥˜.
+	- strcatì€ ë™ì í• ë‹¹ì€ ìƒˆë¡œ í•´ì£¼ì§€ ì•ŠëŠ”ë‹¤.
