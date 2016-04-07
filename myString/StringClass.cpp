@@ -51,7 +51,8 @@ String String::operator+ (const String& s) const
 	//*/case 2, reference book
 	char * str = new char[tempLen+1];
 	strcpy_s(str, this->len + 1, this->str);
-	strcat_s(str,tempLen+1, s.str); // strcatÀ» »ç¿ëÇÏ¸é µ¿ÀûÇÒ´çÀ» »õ·Î ÇØÁÖ´Â°ÍÀº ¾Æ´Ï±â ‹š¹®¿¡ ÇÕÇßÀ»¶§ ¹®Á¦°¡ ¾ø°Ô ¹Ì¸® µÎ Å©±âÀÇ ÇÕÀ» Àâ¾ÆÁà¾ßÇÑ´Ù.
+	strcat_s(str,tempLen+1, s.str); 
+	// strcatì„ ì‚¬ìš©í•˜ë©´ ë™ì í• ë‹¹ì„ ìƒˆë¡œ í•´ì£¼ëŠ”ê²ƒì€ ì•„ë‹ˆê¸° ë•Œë¬¸ì— í•©í–ˆì„ë•Œ ë¬¸ì œê°€ ì—†ê²Œ ë¯¸ë¦¬ ë‘ í¬ê¸°ì˜ í•©ì„ ì¡ì•„ì¤˜ì•¼í•œë‹¤.
 	String temp(str);
 	delete[] str;
 	return temp;
