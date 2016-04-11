@@ -7,41 +7,28 @@ MyStack::MyStack(int size) : tos(-1), size(size)
 
 bool MyStack::isEmpty() const
 {
-	if (tos < 0)
-		return true;
-	else
-		return false;
+	return tos < 0;
 }
 
 bool MyStack::isFull() const
 {
-	if (tos >= size - 1)
-		return true;
-	else
-		return false;
+	return tos >= (size)-1;
 }
 
 void MyStack::Push(int data)
 {
-	if (isFull())
-		return;
-	arr[++tos] = data;
+	if (isFull())	return;
+	else { arr[++tos] = data; }
 }
 
 int MyStack::Pop()
 {
-	if (isEmpty())
-		return -1;
-	int temp = arr[tos];
-	arr[tos--] = -1;
-	return temp;
+	return isEmpty() ? -1 : arr[tos--];
 }
 
 int MyStack::Peek()
 {
-	if (isEmpty())
-		return -1;
-	return arr[tos];
+	return isEmpty() ? -1 : arr[tos];
 }
 
 MyStack::~MyStack()

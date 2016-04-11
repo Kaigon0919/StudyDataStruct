@@ -1,47 +1,37 @@
 #include "MyQueue.h"
+#include<iostream>
+using namespace std;
 
-MyQueue::MyQueue(int size) : front(-1),rear(-1),size(size)
+MyQueue::MyQueue(int size) : front(0),rear(0),size(size+1)
 {
-	arr = new int[size];
+	arr = new int[size+1];
 }
 
 bool MyQueue::isEmpty() const
 {
-	if (front == rear)
-		return true;
-	else
-		return false;
+	return front == rear;
 }
 
 bool MyQueue::isFull() const
 {
-	if (front%size == (rear + 1) % size)
-		return true;
-	else
-		return false;
+	return front%size == (rear + 1) % size;
 }
 
 void MyQueue::Enqueue(int data)
 {
 	if (isFull())
 		return;
-	arr[++rear] = data;
+	arr[(++rear)%size] = data;
 }
 
 int MyQueue::Dequeue()
 {
-	if (isEmpty())
-		return -1;
-	int temp = arr[++front];
-	arr[front] = -1;
-	return temp;
+	return isEmpty() ? -1 : arr[(++front)%size];
 }
 
 int MyQueue::Peek()
 {
-	if (isEmpty())
-		return -1;
-	return arr[front+1];
+	return isEmpty() ? -1 : arr[front + 1];
 }
 
 MyQueue::~MyQueue()
