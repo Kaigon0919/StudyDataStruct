@@ -1,19 +1,30 @@
 #include "BinaryTree.h"
-
 void BirnaryTree::insert_node(TreeNode * node, int data)
 {
 	if (node->data == NULL)
 		node->data = data;
 	else if (data <= node->data)
-		insert_node(node->left, data);
+	{
+		if (node->left != NULL)
+			insert_node(node->left, data);
+		else
+			node->left = new TreeNode{ data,NULL,NULL };
+	}
 	else if (data > node->data)
-		insert_node(node->right, data);
+	{
+		if (node->right != NULL)
+			insert_node(node->right, data);
+		else
+			node->right = new TreeNode{ data,NULL,NULL };
+	}
 	else
 		cout << "error" << endl;
 }
 
 TreeNode * BirnaryTree::search_node(TreeNode * node, int data)
 {
+	if (root ->data == NULL)
+		return NULL;
 	if (data == node->data)
 		return node;
 	else if (data < node->data)
@@ -24,13 +35,14 @@ TreeNode * BirnaryTree::search_node(TreeNode * node, int data)
 		return NULL;
 }
 
-TreeNode * BirnaryTree::remove(TreeNode * node, int data)
+void BirnaryTree::Showlevel(TreeNode * node) const
 {
-	if (data == node->data)
-	{
-		
-	}
-	return nullptr;
+
+}
+
+void BirnaryTree::remove(TreeNode * node, int data)
+{
+
 }
 
 BirnaryTree::BirnaryTree()
@@ -43,15 +55,32 @@ void BirnaryTree::insert(int data)
 }
 void BirnaryTree::remove(int data)
 {
-
+	remove(root, data);
 }
 
 int BirnaryTree::search(int data)
 {
-	return search_node(root, data)->data;
+	
+	TreeNode * temp = search_node(root, data);
+	return temp? temp->data: -1;
+}
+
+void BirnaryTree::Show() const
+{
+
+
 }
 
 BirnaryTree::~BirnaryTree()
 {
-
+	postorderDelete(root);
+}
+void BirnaryTree::postorderDelete(TreeNode * node)
+{
+	if (node != NULL)
+	{
+		postorderDelete(node->left);
+		postorderDelete(node->right);
+		delete node;
+	}
 }
