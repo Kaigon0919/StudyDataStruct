@@ -8,7 +8,7 @@ void main()
 	BirnaryTree a;
 	while (!isExit)
 	{
-		cout << "1. 삽입, 2. 삭제, 3. 찾기, 4. 종료 : ";
+		cout << "1. 삽입, 2. 삭제, 3. 보기, 4. 종료 : ";
 		cin >> input;
 		switch (input)
 		{
@@ -23,9 +23,7 @@ void main()
 			a.remove(input);
 			break;
 		case 3:
-			cout << " 찾을 값 : ";
-			cin >> input;
-			cout << a.search(input) << endl;
+			a.Show();
 			break;
 		case 4:
 			isExit = true;
