@@ -2,10 +2,36 @@
 #include <vector>
 #include <unordered_map>
 #include <unordered_set>
-#include <assert.h>
 #include <string>
 #include <queue>
 #include <limits.h>
+#include<time.h>
+
+class scopeTimer
+{
+	time_t start, end;
+	std::string  showMessage;
+public: static std::string  m_Message;
+public:
+	scopeTimer(const char* message)
+	{
+		start = time(NULL); // 시간 측정 시작
+		showMessage = message;
+	}
+
+	~scopeTimer()
+	{
+		end = time(NULL); // 시간 측정 
+		m_Message += (showMessage + " : " + std::to_string((double)(end - start)) +'\n');
+	}
+
+	static void Show()
+	{
+		std::cout << m_Message << std::endl;
+	}
+};
+
+std::string scopeTimer::m_Message = std::string();
 
 
 
@@ -50,6 +76,7 @@ struct Vertex
 
 int CheckResultCost(const Vertex* vertexs, const int vertexCount, std::queue<int>& stepList)
 {
+	//scopeTimer time("CheckResultCost");
 	std::vector<int> resultArray;
 	std::unordered_set<int> queue;
 
@@ -98,6 +125,12 @@ int CheckResultCost(const Vertex* vertexs, const int vertexCount, std::queue<int
 				targetIndex = tempIdx;
 			}
 
+			if (targetIndex <= -1)
+			{
+				resultValue = -1;
+				break;
+			}
+
 			vertexs[targetIndex].findRoad(resultArray, targetIndex);
 			queue.erase(targetIndex);
 		}
@@ -127,14 +160,18 @@ int main()
 	std::cin >> vertexCount >> edgeCount;
 
 	Vertex* vertexs = new Vertex[vertexCount];
-
-	for (size_t i = 0; i < edgeCount; ++i)
 	{
-		int vertex1, vertex2, cost;
-		std::cin >> vertex1 >> vertex2 >> cost;
+		for (size_t i = 0; i < edgeCount; ++i)
+		{
+			int vertex1, vertex2, cost;
+			std::cin >> vertex1 >> vertex2 >> cost;
 
-		vertexs[vertex1 - 1].AddConnectVertex(vertex2 - 1, cost);
-		vertexs[vertex2 - 1].AddConnectVertex(vertex1 - 1, cost);
+			int index1 = vertex1 - 1;
+			int index2 = vertex2 - 1;
+
+			vertexs[index1].AddConnectVertex(index2, cost);
+			vertexs[index2].AddConnectVertex(index1, cost);
+		}
 	}
 
 	size_t step1, step2;
